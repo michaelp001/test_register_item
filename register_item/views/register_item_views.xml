@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE xml>
+<odoo>
+    <record id="view_register_item_tree" model="ir.ui.view">
+        <field name="name">register.item.tree</field>
+        <field name="model">register.item</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="material_code"/>
+                <field name="material_name"/>
+                <field name="material_type"/>
+                <field name="buy_price"/>
+                <field name="supplier_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_register_item_form" model="ir.ui.view">
+        <field name="name">register.item.form</field>
+        <field name="model">register.item</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="material_code"/>
+                        <field name="material_name"/>
+                        <field name="material_type"/>
+                        <field name="buy_price"/>
+                        <field name="supplier_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <record id="action_register_item" model="ir.actions.act_window">
+        <field name="name">Register Item</field>
+        <field name="res_model">register.item</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_register_item_root" name="Register Item" sequence="10"/>
+    <menuitem id="menu_register_item" name="Materials" parent="menu_register_item_root" action="action_register_item"/>
+</odoo>
